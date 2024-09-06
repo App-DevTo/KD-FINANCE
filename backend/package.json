@@ -10,7 +10,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.19.2",
+=======
+>>>>>>> 1b5441d (init)
     "nodemon": "^3.1.4"
   }
 }
