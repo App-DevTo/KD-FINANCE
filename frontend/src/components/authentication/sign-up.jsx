@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -96,7 +97,7 @@ const SignUpPage = () => {
           </button>
         </form>
         <div className="text-center mt-3">
-          <p style={{ color: '#7A7A7A' }}>Already have an account? <a href="/login" style={{ color: '#6e8efb' }}>Log in</a></p>
+          <p style={{ color: '#7A7A7A' }}>Already have an account? <Link to={"/"} style={{ color: '#6e8efb' }}>Log in</Link></p>
         </div>
       </div>
     </div>
