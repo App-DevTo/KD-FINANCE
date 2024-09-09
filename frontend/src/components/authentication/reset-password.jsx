@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaEnvelope, FaLock } from 'react-icons/fa';
+import { FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Navbar from '../layouts/Navbar';  // Import Navbar
 import Footer from '../layouts/Footer';  // Import Footer
 
-const LoginPage = () => {
+const ResetPasswordPage = () => {
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
   });
 
   const handleChange = (e) => {
@@ -22,6 +21,7 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    // You can add your reset password logic (e.g., API call) here
   };
 
   return (
@@ -29,15 +29,15 @@ const LoginPage = () => {
       {/* Navbar */}
       <Navbar />  
       
-      {/* Login Form */}
-      <div className="login-page vh-100 d-flex align-items-center justify-content-center" style={pageStyles}>
+      {/* Reset Password Form */}
+      <div className="reset-password-page vh-100 d-flex align-items-center justify-content-center" style={pageStyles}>
         <div className="card shadow-lg border-0 rounded p-4" style={{ maxWidth: '400px', width: '100%' }}>
           <div className="text-center mb-4">
-            <h2 style={{ color: '#4A4A4A', fontWeight: '600' }}>KD-FINANCE</h2>
-            <p style={{ color: '#7A7A7A' }}>Login to your account</p>
+            <h2 style={{ color: '#4A4A4A', fontWeight: '600' }}>Reset Password</h2>
+            <p style={{ color: '#7A7A7A' }}>Enter your email to reset your password</p>
           </div>
           <form onSubmit={handleSubmit}>
-            <div className="form-group mb-3 position-relative">
+            <div className="form-group mb-4 position-relative">
               <FaEnvelope className="position-absolute" style={iconStyle} />
               <input
                 type="email"
@@ -52,37 +52,12 @@ const LoginPage = () => {
               />
             </div>
 
-            <div className="form-group mb-4 position-relative">
-              <FaLock className="position-absolute" style={iconStyle} />
-              <input
-                type="password"
-                className="form-control pl-5 rounded-pill"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Password"
-                required
-                style={inputStyle}
-              />
-            </div>
-
             <button type="submit" className="btn btn-primary w-100 rounded-pill" style={buttonStyle}>
-              Log In
+              Send Reset Link
             </button>
           </form>
-
-          {/* Forgot Password Link */}
           <div className="text-center mt-3">
-            <p style={{ color: '#7A7A7A' }}>
-              <Link to={'/reset-password'} style={{ color: '#6e8efb' }}>Forgot Password?</Link>
-            </p>
-          </div>
-
-          <div className="text-center mt-3">
-            <p style={{ color: '#7A7A7A' }}>
-              Don't have an account? <Link to={'/register'} style={{ color: '#6e8efb' }}>Sign up</Link>
-            </p>
+            <Link to="/" style={{ color: '#6e8efb' }}>Back to Login</Link>
           </div>
         </div>
       </div>
@@ -121,4 +96,4 @@ const buttonStyle = {
   transition: 'background-color 0.3s ease',
 };
 
-export default LoginPage;
+export default ResetPasswordPage;

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+//import Navbar from '../layouts/Navbar';
+//import Footer from '../layouts/Footer';
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({

@@ -1,9 +1,14 @@
-import { SignUpPage } from "./components/authentication/auth";
+import Navbar from './components/layouts/Navbar';
+import Footer from './components/layouts/Footer';
+import { ResetPasswordPage, SignUpPage } from './components/authentication/auth';
 
 function App() {
   return (
     <>
-    <SignUpPage/>
+      <Navbar />
+      <SignUpPage />
+      <ResetPasswordPage/>
+      <Footer />
     </>
   );
 }
