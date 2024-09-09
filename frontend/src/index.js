@@ -7,9 +7,13 @@ import reportWebVitals from './reportWebVitals';
 
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import { LoginPage } from './components/authentication/auth';
+import {AdminDashboardPage,UserDashboardPage }from './pages/pages';
 const router = createBrowserRouter([
   {path:"/",element:<LoginPage />, errorElement: <h2>oOps</h2>},
   {path:"/register",element:<App/>},
+  {path:"/admin",element:<AdminDashboardPage/>},
+  {path:"/index",element:<UserDashboardPage/>}
+
 ])
 
 

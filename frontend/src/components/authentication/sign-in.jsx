@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import Navbar from '../layouts/Navbar';  // Import Navbar
-import Footer from '../layouts/Footer';  // Import Footer
-
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -25,71 +22,52 @@ const LoginPage = () => {
   };
 
   return (
-    <>
-      {/* Navbar */}
-      <Navbar />  
-      
-      {/* Login Form */}
-      <div className="login-page vh-100 d-flex align-items-center justify-content-center" style={pageStyles}>
-        <div className="card shadow-lg border-0 rounded p-4" style={{ maxWidth: '400px', width: '100%' }}>
-          <div className="text-center mb-4">
-            <h2 style={{ color: '#4A4A4A', fontWeight: '600' }}>KD-FINANCE</h2>
-            <p style={{ color: '#7A7A7A' }}>Login to your account</p>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group mb-3 position-relative">
-              <FaEnvelope className="position-absolute" style={iconStyle} />
-              <input
-                type="email"
-                className="form-control pl-5 rounded-pill"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email Address"
-                required
-                style={inputStyle}
-              />
-            </div>
-
-            <div className="form-group mb-4 position-relative">
-              <FaLock className="position-absolute" style={iconStyle} />
-              <input
-                type="password"
-                className="form-control pl-5 rounded-pill"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Password"
-                required
-                style={inputStyle}
-              />
-            </div>
-
-            <button type="submit" className="btn btn-primary w-100 rounded-pill" style={buttonStyle}>
-              Log In
-            </button>
-          </form>
-
-          {/* Forgot Password Link */}
-          <div className="text-center mt-3">
-            <p style={{ color: '#7A7A7A' }}>
-              <Link to={'/reset-password'} style={{ color: '#6e8efb' }}>Forgot Password?</Link>
-            </p>
+    <div className="login-page vh-100 d-flex align-items-center justify-content-center" style={pageStyles}>
+      <div className="card shadow-lg border-0 rounded p-4" style={{ maxWidth: '400px', width: '100%' }}>
+        <div className="text-center mb-4">
+          <h2 style={{ color: '#4A4A4A', fontWeight: '600' }}>KD-FINANCE</h2>
+          <p style={{ color: '#7A7A7A' }}>Login to your account</p>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group mb-3 position-relative">
+            <FaEnvelope className="position-absolute" style={iconStyle} />
+            <input
+              type="email"
+              className="form-control pl-5 rounded-pill"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email Address"
+              required
+              style={inputStyle}
+            />
           </div>
 
-          <div className="text-center mt-3">
-            <p style={{ color: '#7A7A7A' }}>
-              Don't have an account? <Link to={'/register'} style={{ color: '#6e8efb' }}>Sign up</Link>
-            </p>
+          <div className="form-group mb-4 position-relative">
+            <FaLock className="position-absolute" style={iconStyle} />
+            <input
+              type="password"
+              className="form-control pl-5 rounded-pill"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+              required
+              style={inputStyle}
+            />
           </div>
+
+          <button type="submit" className="btn btn-primary w-100 rounded-pill" style={buttonStyle}>
+            Log In
+          </button>
+        </form>
+        <div className="text-center mt-3">
+          <p style={{ color: '#7A7A7A' }}>Don't have an account? <Link to={'/'} style={{ color: '#6e8efb' }}>Sign up</Link></p>
         </div>
       </div>
-
-      {/* Footer */}
-      <Footer />  
-    </>
+    </div>
   );
 };
 

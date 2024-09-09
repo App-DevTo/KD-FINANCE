@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css'; // Custom CSS file
 
 const Navbar = () => {
-  const toggleOffcanvas = () => {
-    document.querySelector('.sidebar-offcanvas').classList.toggle('active');
-  };
+  // const toggleOffcanvas = () => {
+  //   document.querySelector('.sidebar-offcanvas').classList.toggle('active');
+  // };
 
   return (
     <BootstrapNavbar bg="primary" variant="dark" expand="lg" fixed="top" className="navbar-custom">

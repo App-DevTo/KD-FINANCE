@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
+import Navbar from '../layouts/Navbar';
+import Footer from '../layouts/Footer';
+import Sidebar from '../layouts/Sidebar';
 
 const AdminLayout = ({ children }) => {
   return (
