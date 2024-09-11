@@ -1,0 +1,247 @@
+/* Navbar custom styles */
+.navbar-custom {
+  margin-bottom: 1rem; /* Add spacing at the bottom */
+  background-color: #007bff; /* Blue background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to navbar */
+  z-index: 1050; /* Ensure it stays on top */
+}
+
+/* Navbar Brand Text */
+.navbar-brand .navbar-logo-text,
+.navbar-brand .navbar-logo-mini-text {
+  font-size: 1.5rem;
+  color: #fff; /* White text */
+  text-decoration: none;
+}
+
+/* Profile Icon */
+.profile-icon {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* Navbar Links */
+.nav-link {
+  display: flex;
+  align-items: center;
+  color: #fff; /* White text */
+  padding: 0.5rem 1rem; /* Add padding for better spacing */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Navbar Link Hover Effect */
+.nav-link:hover {
+  color: #ffdd57; /* Highlight color on hover (yellow) */
+}
+
+/* Dropdown Items in Navbar */
+.navbar-dropdown .dropdown-item {
+  display: flex;
+  align-items: center;
+  color: #333; /* Darker text for dropdown items */
+  padding: 0.5rem 1rem;
+}
+
+/* Profile image container */
+.nav-profile-img {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+/* Profile name text color */
+.nav-profile-text p {
+  color: #fff; /* Ensure profile text color is white */
+  margin: 0; /* Remove extra margin */
+  font-size: 0.875rem; /* Slightly smaller font */
+}
+
+/* Search Field */
+.search-field input {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent white */
+  border: none;
+  border-radius: 50px; /* Rounded corners */
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Search Field Focus */
+.search-field input:focus {
+  background-color: rgba(255, 255, 255, 0.5); /* Lighten background on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Sidebar Toggle Button */
+.navbar-toggler {
+  border: none; /* Remove default border */
+}
+
+
+
+/* AdminLayout.css */
+.sidebar {
+  width: 250px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.hide {
+  width: 0;
+}
+
+.admin-layout.sidebar-open .sidebar {
+  width: 250px;
+}
+
+.admin-layout.sidebar-closed .sidebar {
+  width: 0;
+}
+
+/* end of admin css */
+
+/* sidebar css */
+
+/* Ensure the sidebar does not overlap with the navbar */
+.sidebar-offcanvas {
+  padding-top: 70px; /* Adjust this according to your navbar height */
+  width: 250px;
+  transition: width 0.3s ease;
+  position: fixed;
+  height: 100%;
+  z-index: 1000; /* Ensure it's below the navbar */
+  background-color: #f8f9fa;
+}
+
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-offcanvas.active {
+  width: 0;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+  .sidebar-offcanvas {
+    width: 0;
+    padding-top: 70px; /* Same padding to prevent overlap with the navbar */
+  }
+
+  .sidebar-offcanvas.active {
+    width: 250px;
+  }
+}
+
+/* Fix Navbar Overlap Issue */
+.navbar-custom {
+  z-index: 1050; /* Ensure it's above the sidebar */
+}
+
+/* Optional: Visual styles for the sidebar */
+.sidebar-offcanvas ul.nav {
+  padding-left: 0;
+  list-style: none;
+}
+
+.sidebar-offcanvas ul.nav li.nav-item {
+  padding: 15px 10px;
+}
+
+.sidebar-offcanvas ul.nav li.nav-item .nav-link {
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-offcanvas ul.nav li.nav-item .nav-link:hover {
+  background-color: #e9ecef;
+  border-radius: 4px;
+}
+
+.sidebar-offcanvas ul.nav li.nav-item .nav-link svg {
+  margin-right: 8px;
+}
+
+/* end of sidebar */
+/* Footer Styles */
+.footer {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+  color: #333;
+  border-top: 1px solid #dee2e6;
+}
+
+.footer-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.footer p {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #0056b3;
+}
+
+/* Ensure Quick Links are styled properly */
+.nav-link {
+  color: #007bff;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.nav-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Copyright Text */
+
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .navbar-custom {
+    padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .search-field input {
+    width: 100%; /* Full width on smaller screens */
+    margin-bottom: 1rem; /* Add margin below for spacing */
+  }
+
+  .nav-link {
+    padding: 0.5rem; /* Reduce padding on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand .navbar-logo-text {
+    font-size: 1.25rem; /* Adjust logo size for smaller screens */
+  }
+
+  .navbar-brand .navbar-logo-mini-text {
+    display: none; /* Hide mini logo on small screens */
+  }
+
+  .nav-profile-text p {
+    font-size: 0.75rem; /* Smaller text for profile on small screens */
+  }
+}

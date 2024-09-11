@@ -1,22 +1,26 @@
-import React from 'react';
-import Navbar from '../layouts/Navbar';
-import Footer from '../layouts/Footer';
+
+import React, { useState } from 'react';
+import Navbar from '../layouts/Navbar';  // Correct default import
 import Sidebar from '../layouts/Sidebar';
+import './Layout.css'; // Custom CSS file
 
 const AdminLayout = ({ children }) => {
+  const [sidebarVisible, setSidebarVisible] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
+  };
+
   return (
-    <>
-      <Navbar role="admin" /> {/* Admin-specific navbar (if different) */}
-      <div className="container-fluid">
-        <div className="row">
-          <Sidebar role="admin" /> {/* Sidebar with admin links */}
-          <main className="col-md-9 ml-sm-auto col-lg-10 px-4">
-            {children}
-          </main>
-        </div>
+    <div className={`admin-layout ${sidebarVisible ? 'sidebar-open' : 'sidebar-closed'}`}>
+      <Navbar toggleSidebar={toggleSidebar} />
+      <div className="d-flex">
+        <Sidebar role="admin" className={`sidebar ${sidebarVisible ? 'show' : 'hide'}`} />
+        <main className="flex-grow-1 p-4">
+          {children}
+        </main>
       </div>
-      <Footer />
-    </>
+    </div>
   );
 };
 

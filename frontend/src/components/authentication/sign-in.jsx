@@ -64,7 +64,7 @@ const LoginPage = () => {
           </button>
         </form>
         <div className="text-center mt-3">
-          <p style={{ color: '#7A7A7A' }}>Don't have an account? <Link to={'/'} style={{ color: '#6e8efb' }}>Sign up</Link></p>
+          <p style={{ color: '#7A7A7A' }}>Don't have an account? <Link to={'./register'} style={{ color: '#6e8efb' }}>Sign up</Link></p>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import UserDashboardPage  from'./UserDashboardPage'
-import AdminDashboardPage from './AdminDashboard'
+import AdminDashboardPage from './AdminDashboardPage'
 
 export {
     AdminDashboardPage,

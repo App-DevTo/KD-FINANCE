@@ -1,72 +1,82 @@
-import React from 'react';
-import { Navbar as BootstrapNavbar, Nav, Container, Dropdown } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar as BootstrapNavbar, Nav, Container, Dropdown, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Trans } from 'react-i18next';
-import { FaFilePdf, FaFileExcel, FaEye, FaPencilAlt, FaEnvelope, FaUserCircle, FaSignOutAlt, FaCog, FaHome } from 'react-icons/fa';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Navbar.css'; // Custom CSS file
+import { FaFilePdf, FaFileExcel, FaEye, FaPencilAlt, FaEnvelope, FaUserCircle, FaSignOutAlt, FaCog, FaHome, FaBars, FaSearch } from 'react-icons/fa';
+import './Layout.css'; // Custom CSS file
 
-const Navbar = () => {
-  // const toggleOffcanvas = () => {
-  //   document.querySelector('.sidebar-offcanvas').classList.toggle('active');
-  // };
+const Navbar = ({ toggleSidebar }) => {
+  const [searchVisible, setSearchVisible] = useState(false); // State to toggle search input
+
+  const toggleOffcanvas = () => {
+    toggleSidebar(); // Function to toggle the sidebar visibility
+  };
+
+  const handleSearchToggle = () => {
+    setSearchVisible(!searchVisible); // Toggle the search input visibility
+  };
 
   return (
     <BootstrapNavbar bg="primary" variant="dark" expand="lg" fixed="top" className="navbar-custom">
       <Container fluid>
-        <div className="navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <Link className="navbar-brand brand-logo" to="/">
-            {/* Replace with your logo */}
-            <span className="navbar-logo-text">FinanceApp</span>
-          </Link>
-          <Link className="navbar-brand brand-logo-mini" to="/">
-            {/* Replace with mini logo */}
-            <span className="navbar-logo-mini-text">FA</span>
-          </Link>
-        </div>
+        {/* Sidebar Toggle Button for Small Screens */}
+        <Button variant="link" className="navbar-toggler d-lg-none" onClick={toggleOffcanvas}>
+          <FaBars style={{ color: '#fff', fontSize: '1.5rem' }} />
+        </Button>
 
-        <BootstrapNavbar.Toggle aria-controls="navbar-nav" onClick={() => document.body.classList.toggle('sidebar-icon-only')} />
+        <BootstrapNavbar.Brand href="/" className="d-flex align-items-center">
+          {/* Logo Text */}
+          <span className="navbar-logo-text">FinanceApp</span>
+        </BootstrapNavbar.Brand>
 
+        <BootstrapNavbar.Toggle aria-controls="navbar-nav" />
         <BootstrapNavbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            <form className="d-flex search-field">
-              <input type="text" className="form-control bg-transparent border-0" placeholder="Search products" />
-            </form>
+            {/* Conditionally display the search form */}
+            {searchVisible && (
+              <form className="d-flex search-field">
+                <input type="text" className="form-control" placeholder="Search..." />
+              </form>
+            )}
           </Nav>
 
-          <Nav className="ml-auto">
+          <Nav className="ms-auto d-flex align-items-center">
+            {/* Search Icon */}
+            <Button variant="link" className="text-white me-3" onClick={handleSearchToggle}>
+              <FaSearch style={{ fontSize: '1.5rem' }} />
+            </Button>
+
             {/* Home Link */}
             <Link className="nav-link" to="/">
-              <FaHome className="mr-2" /><Trans>Home</Trans>
+              <FaHome className="me-2" /> Home
             </Link>
 
             {/* Reports Dropdown */}
             <Dropdown alignRight>
-              <Dropdown.Toggle className="nav-link count-indicator">
-                <Trans>Reports</Trans>
+              <Dropdown.Toggle className="nav-link count-indicator" id="reportsDropdown">
+                Reports
               </Dropdown.Toggle>
               <Dropdown.Menu className="navbar-dropdown">
-                <Dropdown.Item href="!#" onClick={(e) => e.preventDefault()}>
-                  <FaFilePdf className="mr-2" /><Trans>PDF</Trans>
+                <Dropdown.Item href="#!" onClick={(e) => e.preventDefault()}>
+                  <FaFilePdf className="me-2" /> PDF
                 </Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item href="!#" onClick={(e) => e.preventDefault()}>
-                  <FaFileExcel className="mr-2" /><Trans>Excel</Trans>
+                <Dropdown.Item href="#!" onClick={(e) => e.preventDefault()}>
+                  <FaFileExcel className="me-2" /> Excel
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
             {/* Projects Dropdown */}
             <Dropdown alignRight>
-              <Dropdown.Toggle className="nav-link count-indicator">
-                <Trans>Projects</Trans>
+              <Dropdown.Toggle className="nav-link count-indicator" id="projectsDropdown">
+                Projects
               </Dropdown.Toggle>
               <Dropdown.Menu className="navbar-dropdown">
-                <Dropdown.Item href="!#" onClick={(e) => e.preventDefault()}>
-                  <FaEye className="mr-2" /><Trans>View Project</Trans>
+                <Dropdown.Item href="#!" onClick={(e) => e.preventDefault()}>
+                  <FaEye className="me-2" /> View Project
                 </Dropdown.Item>
-                <Dropdown.Item href="!#" onClick={(e) => e.preventDefault()}>
-                  <FaPencilAlt className="mr-2" /><Trans>Edit Project</Trans>
+                <Dropdown.Item href="#!" onClick={(e) => e.preventDefault()}>
+                  <FaPencilAlt className="me-2" /> Edit Project
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
@@ -75,28 +85,27 @@ const Navbar = () => {
             <Dropdown alignRight>
               <Dropdown.Toggle className="nav-link count-indicator">
                 <div className="nav-profile-img">
-                  {/* Replace with profile image */}
                   <FaUserCircle className="profile-icon" />
                 </div>
                 <div className="nav-profile-text">
-                  <p className="mb-1 text-black"><Trans>Henry Klein</Trans></p>
+                  <p className="mb-1 text-white">Henry Klein</p>
                 </div>
               </Dropdown.Toggle>
               <Dropdown.Menu className="navbar-dropdown">
-                <Dropdown.Item href="!#" onClick={(e) => e.preventDefault()}>
-                  <FaEnvelope className="mr-2" /><Trans>Inbox</Trans>
+                <Dropdown.Item href="#!" onClick={(e) => e.preventDefault()}>
+                  <FaEnvelope className="me-2" /> Inbox
                 </Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item href="!#" onClick={(e) => e.preventDefault()}>
-                  <FaUserCircle className="mr-2" /><Trans>Profile</Trans>
+                <Dropdown.Item href="#!" onClick={(e) => e.preventDefault()}>
+                  <FaUserCircle className="me-2" /> Profile
                 </Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item href="!#" onClick={(e) => e.preventDefault()}>
-                  <FaCog className="mr-2" /><Trans>Settings</Trans>
+                <Dropdown.Item href="#!" onClick={(e) => e.preventDefault()}>
+                  <FaCog className="me-2" /> Settings
                 </Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item href="!#" onClick={(e) => e.preventDefault()}>
-                  <FaSignOutAlt className="mr-2" /><Trans>Log Out</Trans>
+                <Dropdown.Item href="#!" onClick={(e) => e.preventDefault()}>
+                  <FaSignOutAlt className="me-2" /> Log Out
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

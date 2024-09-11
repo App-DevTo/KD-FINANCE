@@ -1,0 +1,44 @@
+
+/* AdminDashboard.css */
+
+/* Adjust margin for main content when sidebar is visible */
+main {
+    margin-left: 250px; /* Adjust based on sidebar width */
+    margin-top: 70px; /* Adjust based on navbar height */
+    transition: margin-left 0.3s ease;
+  }
+  
+  main.full-width {
+    margin-left: 0; /* Full width when sidebar is hidden */
+  }
+  
+  
+  /* Responsive behavior for sidebar toggle */
+  @media (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+  }
+  
+/* AdminDashboard.css */
+
+@media (max-width: 768px) {
+    .shadow-sm {
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  /* Customize card spacing */
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Adjust table text for smaller screens */
+  .table td, .table th {
+    white-space: nowrap;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
