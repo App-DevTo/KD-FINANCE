@@ -15,9 +15,7 @@ const AdminDashboard = () => {
 
   return (
     <>
-      {/* Navbar */}
-      <Navbar toggleSidebar={toggleSidebar} />
-
+     
       {/* Main Content Area */}
       <div className="container-fluid">
         <div className="row">
@@ -152,8 +150,7 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <Footer />
+
     </>
   );
 };

@@ -4,9 +4,9 @@ import AdminDashboard from '../components/dashboard/AdminDashboard';
 
 const AdminDashboardPage = () => {
   return (
-    <AdminLayout>
+    <>
       <AdminDashboard />
-    </AdminLayout>
+    </>
     
   );
 };

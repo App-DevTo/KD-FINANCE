@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Nav } from 'react-bootstrap';
+import { Container, Row, Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import './Layout.css'; // Custom CSS file
@@ -15,9 +15,9 @@ const Footer = () => {
           <Col md={4}>
             <h5 className="footer-title">Follow Us</h5>
             <div className="social-icons">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <Link to={"https://facebook.com"} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FaFacebook className="social-icon" />
-              </a>
+              </Link>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <FaTwitter className="social-icon" />
               </a>
