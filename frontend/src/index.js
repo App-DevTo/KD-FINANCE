@@ -5,28 +5,31 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AdminDashboardPage, UserDashboardPage } from './pages/pages';
+import Layout from './root';  // Make sure the path is correct
 import { LoginPage } from './components/authentication/auth';
-import {AdminDashboardPage,UserDashboardPage }from './pages/pages';
+
+// Fix the createBrowserRouter by making it an array
 const router = createBrowserRouter([
-  {path:"/",element:<LoginPage />, errorElement: <h2>oOps</h2>},
-  {path:"/register",element:<App/>},
-  {path:"/admin",element:<AdminDashboardPage/>},
-  {path:"/index",element:<UserDashboardPage/>}
-
-])
-
+  {
+    path: "/",
+    element: <Layout />, // Layout wraps all routes
+    errorElement: <h2>Oops! Page not found.</h2>,
+    children: [
+      { path: "/", element: <LoginPage /> },  // The home page
+      { path: "register", element: <App /> },  // Register page
+      { path: "admin", element: <AdminDashboardPage /> },  // Admin page
+      { path: "index", element: <UserDashboardPage /> },  // User Dashboard
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
-
-
-

@@ -12,6 +12,7 @@ const isAuth = require('../middleWare/isAuth')
 router.post(
   "/register",
   asyncHandler(async (req, res) => {
+    console.log(req.body)
     const { email, name, password } = req.body;
 
     // Check if all fields are provided
