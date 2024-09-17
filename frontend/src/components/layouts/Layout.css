@@ -245,3 +245,47 @@
     font-size: 0.75rem; /* Smaller text for profile on small screens */
   }
 }
+
+
+/* Footer Styles */
+.footer {
+  background: linear-gradient(135deg, #007bff, #00aaff);
+  padding: 30px 0;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icon {
+  font-size: 20px;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #ffd700; /* Gold color on hover */
+}
+
+/* Footer Titles */
+.footer-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+/* Responsive Alignments */
+@media (max-width: 768px) {
+  .footer-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
